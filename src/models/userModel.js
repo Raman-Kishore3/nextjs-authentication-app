@@ -30,6 +30,6 @@ const userSchema = new mongoose.Schema({
   verifyTokenExpiry: Date,
 });
 
-const User = mongoose.models.users || mongoose.model("User", userSchema); //any case is ok as it will turn the "User" to lowercase
+const User = mongoose.models.users || mongoose.model("users", userSchema); //any case is ok as it will turn the "User" to lowercase
 
 export default User;

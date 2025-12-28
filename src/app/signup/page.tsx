@@ -42,46 +42,48 @@ export default function SignupPage() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>{loading ? "Processing" : "Signup"}</h1>
-      <hr />
-      <label htmlFor="username">username</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-        id="username"
-        type="text"
-        value={user.username}
-        onChange={(e) => setUser({ ...user, username: e.target.value })}
-        placeholder="username"
-      ></input>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-950 via-blue-800 to-blue-600 dark:via-blue-900 dark:to-black px-4 py-12">
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <h1>{loading ? "Processing" : "Signup"}</h1>
+        <hr />
+        <label htmlFor="username">username</label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          id="username"
+          type="text"
+          value={user.username}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
+          placeholder="username"
+        ></input>
 
-      <label htmlFor="email">email</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-        id="email"
-        type="text"
-        value={user.email}
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
-      ></input>
+        <label htmlFor="email">email</label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          id="email"
+          type="text"
+          value={user.email}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          placeholder="email"
+        ></input>
 
-      <label htmlFor="password">password</label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-        id="password"
-        type="password"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
-      ></input>
+        <label htmlFor="password">password</label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          id="password"
+          type="password"
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          placeholder="password"
+        ></input>
 
-      <button
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-        onClick={onSignup}
-      >
-        {buttonDisabled ? "No Signup" : "Signup"}
-      </button>
-      <Link href="/login">Visit login page</Link>
+        <button
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          onClick={onSignup}
+        >
+          {buttonDisabled ? "No Signup" : "Signup"}
+        </button>
+        <Link href="/login">Visit login page</Link>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import { connect } from "@/dbConfig/dConfig";
+import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
-import bcyrptjs from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 connect();
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       );
     }
     //check if password is correct
-    const validPassword = await bcyrptjs.compare(password, user.password);
+    const validPassword = await bcryptjs.compare(password, user.password);
     if (!validPassword) {
       return NextResponse.json({ error: "Invalid password" }, { status: 400 });
     }
