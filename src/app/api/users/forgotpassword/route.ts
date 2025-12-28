@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       message: "User found",
       success: true,
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
