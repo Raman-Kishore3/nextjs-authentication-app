@@ -67,14 +67,6 @@ export default function RootLayout({
                 border: "1px solid rgba(99, 102, 241, 0.3)",
               },
             },
-            // Dark mode overrides
-            dark: {
-              style: {
-                background: "rgba(31, 41, 55, 0.3)", // Dark glass
-                color: "#f3f4f6",
-                border: "1px solid rgba(55, 65, 81, 0.5)",
-              },
-            },
           }}
         />
       </body>
