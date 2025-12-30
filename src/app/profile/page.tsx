@@ -20,9 +20,23 @@ export default function ProfilePage() {
   };
 
   const getUserDetails = async () => {
-    const res = await axios.get("/api/users/me");
-    console.log(res.data);
-    setData(res.data.data._id);
+    try {
+      const res = await axios.get("/api/users/me");
+      console.log(res.data);
+      setData(res.data.data._id);
+    } catch (error: any) {
+      console.error("Failed to fetch user details:", error);
+
+      let message = "Failed to load user details";
+      if (error.response?.status === 401) {
+        message = "Session expired. Redirecting to login...";
+        toast.error(message);
+        setTimeout(() => router.push("/login"), 1500);
+      } else {
+        message = error.response?.data?.message || error.message || message;
+        toast.error(message);
+      }
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-950 via-blue-800 to-blue-600 dark:via-blue-900 dark:to-black px-4 py-12">
@@ -74,7 +88,7 @@ export default function ProfilePage() {
         </div>
         <div className="text-center">
           <Link
-            href="/"
+            href="/login"
             className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
           ></Link>
         </div>
